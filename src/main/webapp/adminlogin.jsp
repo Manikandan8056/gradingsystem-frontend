@@ -32,7 +32,7 @@ function adminLogin() {
 
 		if(msg == undefined){
 			document.querySelector("#messageBody").innerHTML = "<font color='greet'>You are successfully Logged in.</font>";
-			window.location.replace('userfeature.jsp')
+			window.location.replace('adminfeature.jsp')
 		}else{
 			document.querySelector("#messageBody").innerHTML = "<font color='red'>"+msg+"</font>";   
 		}

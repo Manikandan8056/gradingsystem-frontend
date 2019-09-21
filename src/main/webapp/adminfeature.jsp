@@ -31,13 +31,15 @@
 
 		</div>
 	</nav>
-	<div class="mx-auto" style="width: 200px;">
-		<br> <br> <a href="define_score_range.jsp">Define Score
-			Range</a><br> <br> <a href="view_score_range.jsp">View
-			Score Range</a><br> <br> <a href="DeleteScoreRangeServlet"
-			onclick="return confirm('Are you sure, Do you want to delete the score Ranges?');">Delete
-			Score Range</a>
-
+	
+	
+	<div class="row justify-content-center align-items-center" style="height: 80vh; margin: 0;">
+		
+		<div>
+			<a href="define_score_range.jsp">Define Score Range</a><br> <br> 
+			<a href="view_score_range.jsp">View Score Range</a><br> <br>
+			<a href="DeleteScoreRangeServlet" onclick="return confirm('Are you sure, Do you want to delete the score Ranges?');">Delete Score Range</a>
+		</div>
 	</div>
 
 </body>

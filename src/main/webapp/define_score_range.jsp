@@ -30,7 +30,7 @@ function updateRange() {
 		var msg = JSON.parse(response).responseMessage;
 		console.log(msg);
 		//alert(msg);
-		document.querySelector("#message").innerHTML = "<font color='red'>" + msg + "</font>";
+		document.querySelector("#message").innerHTML = "<font color='red'>" + msg + "</font><br><br>";
 	});
 }
 
@@ -60,23 +60,27 @@ function updateRange() {
 	<br>
 	<br>
 
-
-	<h3>Define Score Range</h3>
-	<br>
-	<br>
-	<div id="message"></div>
-	<br>
-
-	<form onsubmit="updateRange()">
-		Enter the Grade : <input type="text" id="grade" required autofocus /><br>
-		<br> Enter Minimum Score : <input type="number" id="min" min="0"
-			max="100" required><br>
-		<br> Enter Maximum Score : <input type="number" id="max" min="0"
-			max="100" required><br>
-		<br> <input type="submit" class="btn btn-primary" value="Login" />
-		<input type="reset" class="btn btn-primary">
-
-	</form>
+	<div class="row justify-content-center" style="height: 80vh; margin: 0;">
+		<div>
+			<h3>Define Score Range</h3>
+			<br>
+			<br>
+			<div id="message"></div>
+		
+			<form onsubmit="updateRange()">
+				Enter the Grade : <input type="text" id="grade" required autofocus style="width: 17vh"><br>
+				<br> 
+				Enter Minimum Score : <input type="number" id="min" min="0" max="100" required><br>
+				<br> 
+				Enter Maximum Score : <input type="number" id="max" min="0" max="100" required><br>
+				<br> 
+				<div>
+					<input type="submit" class="btn btn-primary" value="Submit" style="margin: 10px;width: 35vh;"><br>
+					<input type="reset" class="btn btn-primary" style="margin: 10px;width: 35vh;">
+				</div>
+			</form>
+		</div>
+	</div>
 
 </body>
 </html>
