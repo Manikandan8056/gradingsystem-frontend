@@ -20,7 +20,7 @@ function rankHolder() {
 	//send ajax request
 	
 	let formData = "subjectCode="+subCode;
-	var url = "http://localhost:8080/grading_system-web/SubjectWiseRankServlet?"+formData;
+	var url = "http://localhost:8081/grading_system-web/SubjectWiseRankServlet?"+formData;
 	var listPromise = $.ajax(url, "GET", formData);
 	
 	listPromise.then(function (response) {

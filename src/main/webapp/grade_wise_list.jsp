@@ -14,7 +14,7 @@
 <script>
 function listStudent() {
 	//send ajax request
-	var url = "http://localhost:8080/grading_system-web/GradeWiseListServlet";
+	var url = "http://localhost:8081/grading_system-web/GradeWiseListServlet";
 	var listPromise = $.ajax(url, "GET");
 	
 	listPromise.then(function (response) {

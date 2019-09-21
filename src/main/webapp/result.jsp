@@ -19,7 +19,7 @@ function getResult() {
 
 	//send ajax request
 	let formData = "regno="+regNo;
-	var url = "http://localhost:8080/grading_system-web/StudentResultServlet?"+formData;
+	var url = "http://localhost:8081/grading_system-web/StudentResultServlet?"+formData;
 	
 	var resultPromise = $.ajax(url, "GET", formData);
 	

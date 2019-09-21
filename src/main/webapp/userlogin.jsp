@@ -7,64 +7,62 @@
 <title>User Login</title>
 </head>
 <link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
 <script src="js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
-<!-- <script type="text/javascript">
-	function admin()
-	{
-	    var name=document.getElementById("username").value;
-	    var password=document.getElementById("password").value;
-	    console.log("UserService-login");
-	    var formData = "AdminName="+ name +"&  Password="+ password;
-	    
-	}
-	</script> -->
+<script>
+function userLogin() {
 
-<body style="background: darkcyan;">
-	<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-		<a class="navbar-brand" style="color: white;">GRADING SYSTEM</a>
-		<button class="navbar-toggler d-lg-none" type="button"
-			data-toggle="collapse" data-target="#collapsibleNavId"
-			aria-controls="collapsibleNavId" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="collapsibleNavId">
-			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-				<li class="nav-item active"><a class="nav-link"
-					href="index.jsp">Home <span class="sr-only">(current)</span></a></li>
+	event.preventDefault();
+	// step 1: Get form values
+	let userName = document.getElementById("username").value;
+	let passWord = document.getElementById("password").value;
+	
+	// prepare formdata
+	let formData = "username="+userName + "&password="+passWord;	
+	//send ajax request
+	var url = "http://localhost:8081/grading_system-web/UserLoginServlet?"+formData ;
+	var login = $.ajax(url, "GET", formData);
+	
+	login.then(function (response) {
 
-				<li class="nav-item"><a class="nav-link" href="adminlogin.jsp">Admin
-						Login</a></li>
-				<li class="nav-item"><a class="nav-link" href="userlogin.jsp">User
-						Login</a></li>
+		var msg = JSON.parse(response).errorMessage;
+		console.log(msg);
 
-			</ul>
+		if(msg == undefined){
+			document.querySelector("#messageBody").innerHTML = "<font color='greet'>You are successfully Logged in.</font>";
+			window.location.replace('userfeature.jsp')
+		}else{
+			document.querySelector("#messageBody").innerHTML = "<font color='red'>"+msg+"</font>";   
+		}
+    });
+}
 
+</script>
+
+<body class="img">
+
+
+	<div class="row justify-content-center align-items-center"
+		style="height: 80vh; margin: 0;">
+		
+		
+		
+		<div class="col-md-6 col-lg-3 text-center"
+			style="box-shadow: 5px 8px 18px -8px rgba(0, 0, 0, 0.5); border-radius: 10px">
+			<form class="mx-auto formstyle" method="get" onsubmit="userLogin()" style="font: message-box;">
+				
+				<div id="messageBody"></div>
+				<br>
+				<h3>User Login</h3>
+				<br> <br> 
+				UserName :<input type="text" id="username" placeholder="UserName" required autofocus><br><br> 
+				Password :<input type="password" id="password" placeholder="Password"><br> <br> 
+				<input type="submit" class="btn btn-primary" value="Login"> 
+				<input type="reset" class="btn btn-primary">
+			</form>
 		</div>
-	</nav>
-
-	<% String errMsg = request.getParameter("errMsg"); 
-			if(errMsg != null)
-			{
-				out.print("<font color='red'>"+errMsg+"</font>");
-			}
-		%>
-	<br>
-
-	<form class="mx-auto" style="width: 200px;" method="post"
-		action="UserLoginServlet">
-		<h3>User Login</h3>
-		<br>
-		<br> UserName : <<<<<<< HEAD <input type="text" name="username"
-			placeholder="UserName" required autofocus /><br>
-		<br> ======= <input type="text" name="name"
-			placeholder="UserName" required autofocus /><br>
-		<br> >>>>>>> 2d4647fb878d6815f72df24c957d09e9fb84fd67 Password :
-		<input type="password" name="password" placeholder="Password" required /><br>
-		<br> <input type="submit" class="btn btn-primary" value="Login" />
-		<input type="reset" class="btn btn-primary">
-	</form>
+	</div>
 </body>
 </html>

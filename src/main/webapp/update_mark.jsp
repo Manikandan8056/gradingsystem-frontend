@@ -25,7 +25,7 @@ function updateMark() {
 	let formData = "regno="+regno + "&mark1="+mark1+ "&mark2="+mark2+ "&mark3="+mark3+ "&mark4="+mark4+ "&mark5="+mark5;		
 	console.log(formData);
 	//send ajax request
-	var url = "http://localhost:8080/grading_system-web/UpdateMarkServlet?"+formData;
+	var url = "http://localhost:8081/grading_system-web/UpdateMarkServlet?"+formData;
 	var registerPromise = $.ajax(url, "GET", formData);
 	
 	registerPromise.then(function(response) {

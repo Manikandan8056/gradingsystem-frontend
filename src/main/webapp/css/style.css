@@ -1,12 +1,38 @@
 @charset "ISO-8859-1";
 
-body {
+.indexback {
 	margin: 0;
 	padding: 0;
 	font-family: sans-serif;
-	background-image: url('laptop.jpg');
+	background-image: url("discuss.jpg");
 	background-repeat: no-repeat;
 	height: 80vh;
 	background-size: cover;
 	
 }
+.img{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	background-image: url("laptop.jpg");
+	background-repeat: no-repeat;
+	height: 80vh;
+	background-size: cover;
+	
+}
+li{
+	list-style-type: none;
+	color: black;
+	font-family: cursive;
+    font-style: oblique;
+    font-size: larger;
+}
+.formstyle{
+	background-color: cornsilk;
+	width: 400px;
+	height: 300px;
+	box-shadow: 8px 9px 8px -8px rgba(255, 255, 255, 0.5);
+	text-align: center;
+	font-size: large;
+}
+
