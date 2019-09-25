@@ -83,7 +83,7 @@ function getResult() {
 	<br>
 
 	<form onsubmit="getResult()">
-		Enter the Register Number : <input type="number" id="regno" min="1000"
+		Enter the Register Number : <input type="number" id="regno" min="1001"
 			max="1100" required autofocus /><br> <br> <input
 			type="submit" class="btn btn-primary" value="Enter" /> <input
 			type="reset" class="btn btn-primary"> <br> <br> <br>

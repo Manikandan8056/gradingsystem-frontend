@@ -34,7 +34,7 @@ function rankHolder() {
 	        var list = response;
 	        
 	        //document.getElementById("studlist").innerHTML = "";
-	        cont = "<h3>Subject wise RankHolders : "+subName+"</h3><br><br/><table class='table'><thead><tr><th>S.No</th><th>Student Name</th><th>Register Number</th><th>Mark</th></tr></thead><tbody>";
+	        cont = "<h3>Subject wise RankHolders : "++"( "+subName+" )</h3><br><br/><table class='table'><thead><tr><th>S.No</th><th>Student Name</th><th>Register Number</th><th>Mark</th></tr></thead><tbody>";
 	
 	        for (let stud of list) {
 	            cont += "<tr><td></td><td>";
@@ -87,7 +87,7 @@ function rankHolder() {
 	<br>
 
 	<form onsubmit="rankHolder()">
-		Select a Subject Name : <select id="subCode">
+		Select a Subject : <select id="subCode">
 			<option value="ENG11">ENGLISH</option>
 			<option value="MAT12">MATHS</option>
 			<option value="PHY13">PHYSICS</option>
