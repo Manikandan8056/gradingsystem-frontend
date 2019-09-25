@@ -16,25 +16,25 @@ function rankHolder() {
 
 	event.preventDefault();
 	// step 1: Get form values
-	let subCode = document.getElementById("subCode").value;
+	let subName = document.getElementById("subCode").value;
 	//send ajax request
 	
-	let formData = "subjectCode="+subCode;
+	let formData = "subjectCode="+subName;
 	var url = "http://localhost:8081/gradingsystem-api/SubjectWiseRankServlet?"+formData;
 	var listPromise = $.ajax(url, "GET", formData);
 	
 	listPromise.then(function (response) {
 
-		var msg = JSON.parse(response).errMessage;
+		var msg = response.errMessage;
 		console.log(msg);
 
 		if(msg != undefined){
 			document.querySelector("#message").innerHTML = "<font color='red'>" + msg + "</font>";
 		}else{
-	        var list = JSON.parse(response);
+	        var list = response;
 	        
 	        //document.getElementById("studlist").innerHTML = "";
-	        cont = "<h3>Subject wise RankHolders :</h3><br><br/><table class='table'><thead><tr><th>S.No</th><th>Student Name</th><th>Register Number</th><th>"+subCode+"</th><th>OverAll-Grade</th></tr></thead><tbody>";
+	        cont = "<h3>Subject wise RankHolders : "+subName+"</h3><br><br/><table class='table'><thead><tr><th>S.No</th><th>Student Name</th><th>Register Number</th><th>Mark</th></tr></thead><tbody>";
 	
 	        for (let stud of list) {
 	            cont += "<tr><td></td><td>";
@@ -43,8 +43,6 @@ function rankHolder() {
 	            cont += stud.regNo;
 	            cont += "</td><td>";
 	            cont += stud.mark;
-	            cont += "</td><td>";
-	            cont += stud.grade;
 	            cont += "</td></tr>";
 	        }
 	
@@ -89,7 +87,7 @@ function rankHolder() {
 	<br>
 
 	<form onsubmit="rankHolder()">
-		Enter a Subject Code : <select id="subCode">
+		Select a Subject Name : <select id="subCode">
 			<option value="ENG11">ENGLISH</option>
 			<option value="MAT12">MATHS</option>
 			<option value="PHY13">PHYSICS</option>
