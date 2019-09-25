@@ -14,7 +14,7 @@
 <script>
 function viewRange() {
 	//send ajax request
-	var url = "http://localhost:8081/grading_system-web/ViewScoreRangeServlet";
+	var url = "http://localhost:8081/gradingsystem-api/ViewScoreRangeServlet";
 	var viewPromise = $.ajax(url, "GET");
 	
 	viewPromise.then(function (response) {

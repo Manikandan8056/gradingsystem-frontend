@@ -22,12 +22,13 @@ function adminLogin() {
 	// prepare formdata
 	let formData = "username="+userName + "&password="+passWord;	
 	//send ajax request
-	var url = "http://localhost:8081/grading_system-web/AdminLoginServlet?"+formData ;
-	var login = $.ajax(url, "GET", formData);
+	var url = "http://localhost:8081/gradingsystem-api/AdminLoginServlet?"+formData ;
+	var login = $.ajax(url);
 	
 	login.then(function (response) {
-
-		var msg = JSON.parse(response).errorMessage;
+		console.log(response.errorMessage);
+		
+		var msg = response.errorMessage;
 		console.log(msg);
 
 		if(msg == undefined){

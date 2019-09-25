@@ -22,7 +22,7 @@ function userLogin() {
 	// prepare formdata
 	let formData = "username="+userName + "&password="+passWord;	
 	//send ajax request
-	var url = "http://localhost:8081/grading_system-web/UserLoginServlet?"+formData ;
+	var url = "http://localhost:8081/gradingsystem-api/UserLoginServlet?"+formData ;
 	var login = $.ajax(url, "GET", formData);
 	
 	login.then(function (response) {
