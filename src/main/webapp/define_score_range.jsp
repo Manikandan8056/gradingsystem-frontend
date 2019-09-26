@@ -27,7 +27,7 @@ function updateRange() {
 	
 	registerPromise.then(function(response) {
 		console.log("Error:" + JSON.stringify(response));
-		var msg = JSON.parse(response).responseMessage;
+		var msg = response.responseMessage;
 		console.log(msg);
 		//alert(msg);
 		document.querySelector("#message").innerHTML = "<font color='red'>" + msg + "</font><br><br>";

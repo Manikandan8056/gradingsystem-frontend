@@ -27,7 +27,7 @@ function userLogin() {
 	
 	login.then(function (response) {
 
-		var msg = JSON.parse(response).errorMessage;
+		var msg = response.errorMessage;
 		console.log(msg);
 
 		if(msg == undefined){
@@ -35,6 +35,7 @@ function userLogin() {
 			window.location.replace('userfeature.jsp')
 		}else{
 			document.querySelector("#messageBody").innerHTML = "<font color='red'>"+msg+"</font>";   
+			$('#errorMsg').css({'display':'block'}); 
 		}
     });
 }
@@ -44,23 +45,49 @@ function userLogin() {
 <body class="img">
 
 
-	<div class="row justify-content-center align-items-center"
-		style="height: 80vh; margin: 0;">
+	<div class="row justify-content-center align-items-center" style="height: 80vh; margin: 0;">
 		
+		<div class="col-md-6">
+			<div style="display:none;" id="errorMsg" class="alert alert-danger alert-dismissible fade show" role="alert">
+			  		<i id="messageBody"></i>
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			    	<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+		</div>
 		
+		<div class="w-100"></div>
 		
-		<div class="col-md-6 col-lg-3 text-center"
-			style="box-shadow: 5px 8px 18px -8px rgba(0, 0, 0, 0.5); border-radius: 10px">
-			<form class="mx-auto formstyle" method="get" onsubmit="userLogin()" style="font: message-box;">
-				
-				<div id="messageBody"></div>
-				<br>
-				<h3>User Login</h3>
-				<br> <br> 
-				UserName :<input type="text" id="username" placeholder="UserName" required autofocus><br><br> 
-				Password :<input type="password" id="password" placeholder="Password"><br> <br> 
-				<input type="submit" class="btn btn-primary" value="Login"> 
-				<input type="reset" class="btn btn-primary">
+		<div class="col-md-6 text-center" style="box-shadow: 5px 8px 18px -8px rgba(0, 0, 0, 0.5); border-radius: 10px;">
+			
+			<form class="mx-auto formstyle" method="get" onsubmit="userLogin()" style="font: message-box;opacity: 0.8;border-radius: 10px;background-color: black;color: white;padding:0 20px;">
+				<div class="row justify-content-center align-items-center" style="height:300px">
+					<div class="col">
+						<h3>User Login</h3>
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+											UserName
+										</div>
+									</div>
+									<input type="text" id="username" class="form-control" placeholder="UserName" required autofocus>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+											Password
+										</div>
+									</div>
+									<input type="password" id="password" class="form-control" placeholder="Password">
+								</div>
+							</div>
+							<input type="submit" class="btn btn-primary" value="Login"> 
+							<input type="reset" class="btn btn-primary" >
+					</div>
+				</div>
 			</form>
 		</div>
 	</div>

@@ -18,7 +18,7 @@ function viewRange() {
 	var viewPromise = $.ajax(url, "GET");
 	
 	viewPromise.then(function (response) {
-        var list = JSON.parse(response);
+        var list = response;
         //document.getElementById("studlist").innerHTML = "";
         cont = "<table class='table'><thead><tr><th>S.No</th><th>GRADE</th><th>MINIMUN-RANGE</th><th>MAXIMUM-RANGE</th></tr></thead><tbody>";
 
