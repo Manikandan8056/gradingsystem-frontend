@@ -6,41 +6,11 @@
 <meta charset="ISO-8859-1">
 <title>Admin Login</title>
 </head>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/style.css">
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script src="js/bootstrap.min.js"></script>
 
-<script>
-function adminLogin() {
-
-	event.preventDefault();
-	// step 1: Get form values
-	let userName = document.getElementById("username").value;
-	let passWord = document.getElementById("password").value;
-	
-	// prepare formdata
-	let formData = "username="+userName + "&password="+passWord;	
-	//send ajax request
-	var url = "http://localhost:8081/gradingsystem-api/AdminLoginServlet?"+formData ;
-	var login = $.ajax(url);
-	
-	login.then(function (response) {
-		console.log(response.errorMessage);
-		
-		var msg = response.errorMessage;
-		console.log(msg);
-
-		if(msg == undefined){
-			document.querySelector("#messageBody").innerHTML = "<font color='green'>You are successfully Logged in.</font>";
-			window.location.replace('adminfeature.jsp')
-		}else{
-			document.querySelector("#messageBody").innerHTML = "<font color='red'>"+msg+"</font>";  
-			$('#errorMsg').css({'display':'block'}); 
-		}
-    });
-}
-</script>
 <body class="img">
 
 	<div class="row justify-content-center align-items-center"
@@ -90,4 +60,36 @@ function adminLogin() {
 		</div>
 	</div>
 </body>
+
+<script>
+function adminLogin() {
+
+	event.preventDefault();
+	// step 1: Get form values
+	let userName = document.getElementById("username").value;
+	let passWord = document.getElementById("password").value;
+	
+	// prepare formdata
+	let formData = "username="+userName + "&password="+passWord;	
+	//send ajax request
+	var url = "http://localhost:8080/gradingsystem-api/AdminLoginServlet?"+formData ;
+	var login = $.ajax(url);
+	
+	login.then(function (response) {
+		console.log(response.errorMessage);
+		
+		var msg = JSON.parse(response).errorMessage;
+		console.log(msg);
+
+		if(msg != undefined){
+			document.querySelector("#messageBody").innerHTML = "<font color='red'>"+msg+"</font>";  
+			$('#errorMsg').css({'display':'block'});
+		}else{
+			document.querySelector("#messageBody").innerHTML = "<font color='green'>You are successfully Logged in.</font>";
+			$('#errorMsg').css({'display':'block'});
+			window.location.replace('adminfeature.jsp')
+		}
+    });
+}
+</script>
 </html>

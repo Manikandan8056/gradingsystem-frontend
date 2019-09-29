@@ -6,8 +6,10 @@
 <meta charset="ISO-8859-1">
 <title>UserFeature</title>
 </head>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <script src="js/bootstrap.min.js"></script>
+
 <body>
 	<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
 		<a class="navbar-brand" style="color: white;">GRADING SYSTEM</a>
@@ -32,19 +34,15 @@
 		</div>
 	</nav>
 
-	<div class="mx-auto" style="width: 300px;">
-		<br>
-		<br> <a href="result.jsp">Check the Result</a><br>
-		<br> <a href="update_mark.jsp">Update student marks</a><br>
-		<br> <a href="grade_wise_list.jsp">List the student based on
-			grade</a><br>
-		<br> <a href="specific_grade.jsp">List the student on
-			specific grade</a><br>
-		<br> <a href="sub_wise_rankholder.jsp">Subject wise
-			rankholder</a><br>
-		<br> <a href="view_score_range1.jsp">View Score Range</a><br>
-		<br>
-
+	<div class="row justify-content-center align-items-center" style="height: 80vh; margin: 0;">
+		<div>
+		 	<a href="result.jsp" style="font-size: x-large;">Student result</a><br><br>
+			<a href="update_mark.jsp" style="font-size: x-large;">Update student marks</a><br><br>
+			<a href="grade_wise_list.jsp" style="font-size: x-large;">List the student based on grade</a><br><br>
+			<a href="specific_grade.jsp" style="font-size: x-large;">Student list on specific grade</a><br><br>
+			<a href="sub_wise_rankholder.jsp" style="font-size: x-large;">Subject wise rankholder</a><br><br>
+			<a href="view_score_range1.jsp" style="font-size: x-large;">View Score Range</a><br>
+		</div>	
 	</div>
 
 </body>
