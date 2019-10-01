@@ -9,40 +9,23 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <script src="js/bootstrap.min.js"></script>
-
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/counter.css">
+<script src="js/util.js"></script>
 <body>
-	<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-		<a class="navbar-brand" style="color: white;">GRADING SYSTEM</a>
-		<button class="navbar-toggler d-lg-none" type="button"
-			data-toggle="collapse" data-target="#collapsibleNavId"
-			aria-controls="collapsibleNavId" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="collapsibleNavId">
-			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-				<li class="nav-item active"><a class="nav-link" href="#">Home
-						<span class="sr-only">(current)</span>
-				</a></li>
+	<jsp:include page="headerUser.html"></jsp:include>
 
-			</ul>
-
-			<div class="nav-item-right">
-				<a class="nav-link" href="index.jsp">Logout</a>
-			</div>
-
-		</div>
-	</nav>
-
-	<div class="row justify-content-center align-items-center" style="height: 80vh; margin: 0;">
-		<div>
-		 	<a href="result.jsp" style="font-size: x-large;">Student result</a><br><br>
-			<a href="update_mark.jsp" style="font-size: x-large;">Update student marks</a><br><br>
-			<a href="grade_wise_list.jsp" style="font-size: x-large;">List the student based on grade</a><br><br>
-			<a href="specific_grade.jsp" style="font-size: x-large;">Student list on specific grade</a><br><br>
-			<a href="sub_wise_rankholder.jsp" style="font-size: x-large;">Subject wise rankholder</a><br><br>
-			<a href="view_score_range1.jsp" style="font-size: x-large;">View Score Range</a><br>
-		</div>	
+	<div class="view" id="view">
+		 <%
+	            String pageName = request.getParameter("pageName");
+	        if(pageName == null || "".equals(pageName.trim()))
+	        {
+	        	pageName = "userHome.jsp";
+	        }
+	        %>
+	        
+	        <jsp:include page="<%=pageName%>"></jsp:include>
+	        
 	</div>
 
 </body>

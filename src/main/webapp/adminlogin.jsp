@@ -1,17 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Admin Login</title>
-</head>
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/style.css">
-<script src="js/bootstrap.min.js"></script>
 
-<body class="img">
+<div class="img" style="height: 100vh;">
 
 	<div class="row justify-content-center align-items-center"
 		style="height: 80vh; margin: 0;">
@@ -27,7 +15,7 @@
 		
 		<div class="w-100"></div>
 		
-		<div class="col-md-6 text-center" style="box-shadow: 5px 8px 18px -8px rgba(0, 0, 0, 0.5); border-radius: 10px;height:55vh">
+		<div class="col-md-6 text-center" style="box-shadow: 5px 8px 18px -8px rgba(0, 0, 0, 0.5); border-radius: 10px; height:55vh;">
 			<form class="mx-auto formstyle" method="get" onsubmit="adminLogin()" style="font: message-box;opacity: 0.8;border-radius: 10px;background-color: black;color: white;padding:0 20px;">
 				<div class="row justify-content-center align-items-center" style="height:300px">
 					<div class="col">
@@ -39,7 +27,7 @@
 											AdminName
 										</div>
 									</div>
-									<input type="text" id="username" class="form-control" placeholder="UserName" required autofocus>
+									<input type="text" autocomplete="off" id="username" class="form-control" placeholder="UserName" required autofocus>
 								</div>
 							</div>
 							<div class="form-group">
@@ -53,13 +41,13 @@
 								</div>
 							</div>
 							<input type="submit" class="btn btn-primary" value="Login"> 
-							<input type="reset" class="btn btn-primary" >
+							<input type="reset" class="btn btn-primary" ><br><br>
+							<a href="index.jsp" >Back</a>
 					</div>
 				</div>
 			</form>
 		</div>
 	</div>
-</body>
 
 <script>
 function adminLogin() {
@@ -92,4 +80,4 @@ function adminLogin() {
     });
 }
 </script>
-</html>
+</div>
