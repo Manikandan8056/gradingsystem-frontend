@@ -11,6 +11,7 @@
 <script src="js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/counter.css">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/button.css">
 <body>
 	
 	<jsp:include page="headerAdmin.html"></jsp:include>

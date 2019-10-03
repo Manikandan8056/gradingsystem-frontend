@@ -1,8 +1,7 @@
 
-<div class="img" style="height: 100vh;">
+<div class="img" style="height: 92vh;">
 
-	<div class="row justify-content-center align-items-center"
-		style="height: 80vh; margin: 0;">
+	<div class="row justify-content-center align-items-center" style="height: 80vh; margin: 0;">
 		
 		<div class="col-md-6">
 			<div style="display:none;" id="errorMsg" class="alert alert-danger alert-dismissible fade show" role="alert">

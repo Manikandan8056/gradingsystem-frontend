@@ -1,5 +1,5 @@
 
-<div class="img" style="height: 100vh;">
+<div class="img" style="height: 92vh;">
 
 	<div class="row justify-content-center align-items-center" style="height: 80vh; margin: 0;">
 		
@@ -60,7 +60,7 @@
 		// prepare formdata
 		let formData = "username="+userName + "&password="+passWord;	
 		//send ajax request
-		var url = "http://localhost:8080/gradingsystem-api/UserLoginServlet?"+formData ;
+		var url = "http://localhost:8080/gradingsystem-api/UserLoginServlet?"+formData;
 		var login = $.ajax(url, "GET", formData);
 		
 		login.then(function (response) {

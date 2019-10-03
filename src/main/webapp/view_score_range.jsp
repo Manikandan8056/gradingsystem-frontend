@@ -1,7 +1,13 @@
-
-	<h2>Score Range Details</h2>
-
-	<div id="tbody"></div>
+<div class="row justify-content-center align-items-center" style="height: 80vh;">
+	<div>
+		<div class="col-md-12 text-center">
+			<h2>Score Range Details</h2>
+		</div>
+		<div>
+			<div id="tbody"></div>
+		</div>
+	</div>
+</div>
 
 <script>
 function viewRange() {
@@ -15,6 +21,7 @@ function viewRange() {
         cont = "<table class='table'><thead><tr><th>S.No</th><th>GRADE</th><th>MINIMUN-RANGE</th><th>MAXIMUM-RANGE</th></tr></thead><tbody>";
 		
         for (let range of list) {
+            console.log(list);
             cont += "<tr><td></td><td>";
             cont += range.grade;
             cont += "</td><td>";
