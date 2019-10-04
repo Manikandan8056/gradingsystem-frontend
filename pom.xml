@@ -8,12 +8,6 @@
   <name>gradingsystem-frontend Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
     
     <dependency>
             <groupId>javax.servlet</groupId>
@@ -22,26 +16,7 @@
             <scope>provided</scope>
         </dependency>
         
-     <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.17</version>
-        </dependency>
-        
-        <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
-	<dependency>
-	    <groupId>com.google.code.gson</groupId>
-	    <artifactId>gson</artifactId>
-	    <version>2.8.5</version>
-	</dependency>
-
-        
-    <dependency>
-    	<groupId>org.projectlombok</groupId>
-    	<artifactId>lombok</artifactId>
-    	<version>1.18.8</version>
-    	<scope>provided</scope>
-	</dependency>   
+    
   </dependencies>
   <build>
     <finalName>gradingsystem-frontend</finalName>
