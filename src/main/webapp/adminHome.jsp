@@ -9,23 +9,15 @@
 				</div>
 		</div>
 	</div>
-	<div style="text-align:center">
-		<div class="headerContainerWrapper"></div>
-			<div class="bodyContainerWrapper">
-				<div class="bodyContainer">
-					<div class="padding">	
-						<div class="row justify-content-center align-items-center" style="height: 30vh; margin: 0;">
-							<div>
-								<a href="?pageName=define_score_range.jsp" class="transparent_btn red" style="font-size: large;">Define Score Range</a><br> <br>
-								<a href="?pageName=view_score_range.jsp" class="transparent_btn blue" style="font-size: large;">View Score Range</a><br> <br>
-								<a href="" class="transparent_btn yellow" onsubmit="deleteFunc()" style="font-size: large;">Delete All Score Range</a>
-							</div>
-						</div>
-					</div>
-				</div>
+		<div class="row justify-content-center align-items-center" style="height: 30vh; margin: 0;">
+			
+			<div>
+				<a href="?pageName=define_score_range.jsp" style="font-size: x-large;">Define Score Range</a><br> <br>
+				<a href="?pageName=view_score_range.jsp" style="font-size: x-large;">View Score Range</a><br> <br>
+				<a href="" onclick="deleteFunc()" style="font-size: x-large;">Delete All Score Range</a>
 			</div>
 		</div>
-
+	
 	
 <script>
 	

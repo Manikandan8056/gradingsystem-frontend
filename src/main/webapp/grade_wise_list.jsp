@@ -50,5 +50,3 @@ function listStudent() {
  listStudent();
  </script>
  
-</body>
-</html>

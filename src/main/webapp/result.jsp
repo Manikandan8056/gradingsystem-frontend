@@ -1,38 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Result</title>
-</head>
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<script src="js/bootstrap.min.js"></script>
-<script src="js/util.js"></script>
 
-<body>
-	<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-		<a class="navbar-brand" style="color: white;">GRADING SYSTEM</a>
-		<button class="navbar-toggler d-lg-none" type="button"
-			data-toggle="collapse" data-target="#collapsibleNavId"
-			aria-controls="collapsibleNavId" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="collapsibleNavId">
-			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-				<li class="nav-item active"><a class="nav-link"
-					href="userfeature.jsp">Home <span class="sr-only">(current)</span></a>
-				</li>
-
-			</ul>
-			<div class="nav-item-right">
-				<a class="nav-link" href="index.jsp">Logout</a>
-			</div>
-
-		</div>
-	</nav>
 	<div class="row justify-content-center align-items-center" style="height: 20vh; margin: 0;">
 		<div class="col-md-6">
 				<div style="display:none;" id="errorMsg" class="alert alert-primary alert-dismissible fade show" role="alert">
@@ -103,5 +69,3 @@ function getResult() {
 }
 
 </script>
-</body>
-</html>
