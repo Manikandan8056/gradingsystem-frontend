@@ -35,7 +35,7 @@ function listStudent() {
 	let grade = document.getElementById("grade").value;
 
 	let formData = "grade="+grade;
-	var url = "http://localhost:8080/gradingsystem-api/StudentByGradeServlet?"+formData;
+	var url = server + "/gradingsystem-api/StudentByGradeServlet?"+formData;
 	var listPromise = $.ajax(url, "GET", formData);
 	
 	listPromise.then(function (response) {

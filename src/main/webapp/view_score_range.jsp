@@ -12,7 +12,7 @@
 <script>
 function viewRange() {
 	//send ajax request
-	var url = "http://localhost:8080/gradingsystem-api/ViewScoreRangeServlet";
+	var url = server + "/gradingsystem-api/ViewScoreRangeServlet";
 	var viewPromise = $.ajax(url, "GET");
 	
 	viewPromise.then(function (response) {

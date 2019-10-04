@@ -25,7 +25,7 @@
 			  var txt;
 			  if (confirm("Are you sure, Do you want to delete the score Ranges?")) {
 					event.preventDefault();
-				  	var url = "http://localhost:8080/gradingsystem-api/DeleteScoreRangeServlet";
+				  	var url = server + "/gradingsystem-api/DeleteScoreRangeServlet";
 				  	var deletePromise = $.get(url);
 					
 				  	deletePromise.then(function (response) {

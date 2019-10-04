@@ -5,13 +5,15 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>UserFeature</title>
-</head>
+<script src="js/app.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <script src="js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/counter.css">
 <script src="js/util.js"></script>
+</head>
+
 <body>
 	<jsp:include page="headerUser.html"></jsp:include>
 

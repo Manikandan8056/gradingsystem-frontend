@@ -42,7 +42,7 @@ function updateRange() {
 	let formData = "grade="+gradeRange + "&min="+minimum + "&max=" + maximum;		
 	console.log(formData);
 	//send ajax request
-	var url = "http://localhost:8080/gradingsystem-api/DefineScoreRangeServlet?"+formData;
+	var url = server + "/gradingsystem-api/DefineScoreRangeServlet?"+formData;
 	var registerPromise = $.ajax(url, "GET", formData);
 	
 	registerPromise.then(function(response) {

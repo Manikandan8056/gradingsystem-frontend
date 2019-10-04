@@ -5,6 +5,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <link rel="stylesheet" href="css/style.css">
 <script src="js/bootstrap.min.js"></script>
+<script src="js/app.js"></script>
 
 </head>
 

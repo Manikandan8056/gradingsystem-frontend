@@ -12,7 +12,7 @@ function AddNewEmployee(){
     var department = document.getElementById("department").value;
     var formData ="name=" + name + "&fathername=" + fathername+ "&email=" + email + "&department=" + department;
     console.log(formData);
-var url ="http://localhost:8080/GMS-api/FrontController/addEmployee.do?"+ formData;
+var url =server + "/GMS-api/FrontController/addEmployee.do?"+ formData;
     $.get(url, function(response){
         console.log("AddNewEmployee:"+response);
        var data=JSON.parse(response);
@@ -28,7 +28,7 @@ function checkEmail(){
       var email = document.getElementById("email").value;
     var formData ="email=" + email;
     console.log(formData);
-var url ="http://localhost:8080/GMS-api/FrontController/checkEmail.do?"+ formData;
+var url =server + "/GMS-api/FrontController/checkEmail.do?"+ formData;
     $.get(url, function(response){
        var data=JSON.parse(response);
        if(data.result){
@@ -47,7 +47,7 @@ function checkDepartment(){
       var department = document.getElementById("department").value;
     var formData ="department=" + department;
     console.log(formData);
-var url ="http://localhost:8080/GMS-api/FrontController/checkDepartment.do?"+ formData;
+var url =server + "/GMS-api/FrontController/checkDepartment.do?"+ formData;
     $.get(url, function(response){
        var data=JSON.parse(response);
        if(data.result==false){
