@@ -6,7 +6,8 @@
 <script>
 function viewRange() {
 	//send ajax request
-	var url = server + "/gradingsystem-api/ViewScoreRangeServlet";
+	//var url = server + "/gradingsystem-api/ViewScoreRangeServlet";
+	var url = server + "/viewScore";
 	var viewPromise = $.ajax(url, "GET");
 	
 	viewPromise.then(function (response) {

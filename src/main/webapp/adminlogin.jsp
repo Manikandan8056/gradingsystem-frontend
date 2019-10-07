@@ -59,7 +59,8 @@ function adminLogin() {
 	// prepare formdata
 	let formData = "username="+userName + "&password="+passWord;	
 	//send ajax request
-	var url = server + "/gradingsystem-api/AdminLoginServlet?"+formData ;
+	//var url = server + "/gradingsystem-api/AdminLoginServlet?"+formData ;
+	var url = server + "/adminlogin?"+formData ;
 	var login = $.ajax(url);
 	
 	login.then(function (response) {

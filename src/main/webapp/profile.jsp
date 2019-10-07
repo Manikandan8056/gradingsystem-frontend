@@ -1,4 +1,3 @@
-
 <script>
  function msg()  
 {  
@@ -10,7 +9,7 @@
         <div class="modal-dialog modal-login">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Add Employee</h4>
+                    <h4 class="modal-title">Profile</h4>
                     <button type="button" class="close" href="adminHome.jsp" data-dismiss="modal"
                         aria-hidden="true">&times;</button>
                 </div>
@@ -23,7 +22,7 @@
 	                        </div>
 	                        <div class="form-group">
 	                            <input type="email" class="form-control" autocomplete="off" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
-	                            title="Enter valid email id" placeholder="email" required="required" >
+	                            title="Enter valid email id" placeholder="email" disabled required="required" >
 	                        </div>
 	                        <div class="form-group">
 	                            <input type="number" class="form-control" autocomplete="off"  name="mobile" id="mobile"
@@ -37,25 +36,30 @@
 	                        </div>
 	                        
 	                        <div class="form-group" style="text-align-centre">
-	                            <input type="radio" class="form-group" name="role" id="role" value="A" required><span id="role">&nbsp;Admin</span>&nbsp;
-								<input type="radio" class="form-group" name="role" id="role"  value="T" required><span id="role">&nbsp;Teacher</span>
+	                        	<label class="radio" disabled>
+	                            	<input type="radio" class="form-group" name="role" id="role" value="A" disabled required><span id="role">&nbsp;Admin</span>&nbsp;
+								</label>
+								<label class="radio" disabled>
+									<input type="radio" class="form-group" name="role" id="role"  value="T" checked disabled required><span id="role">&nbsp;Teacher</span>
+	                        	</label>
 	                        </div>
 	                        
-	                        <div class="form-group">
+	                        <div class="form-group" >
 								<select id="subject" class="form-control">
+									<option value="" selected disabled>-- Select subject --</option>
 									<option value="ENGLISH">ENGLISH</option>
 									<option value="MATHS">MATHS</option>
 									<option value="PHYSICS">PHYSICS</option>
 									<option value="CHEMISTRY">CHEMISTRY</option>
 									<option value="COMPUTER">COMPUTER</option>
-								</select><br><br>
+								</select><br>
 	                        </div>
 	                       
 	                        <div class="form-group" align=center>
-	                            <button type="submit" class="btn btn-primary btn-xs">Add
+	                            <button type="submit" class="btn btn-primary btn-xs">Save
 	                                </button>
 	                            &nbsp;
-	                            <button type="reset" class="btn btn-secondary btn-xs">clear</button>
+	                            <button type="reset" class="btn btn-secondary btn-xs">Cancel</button>
 	                        </div>                    
 	                    </form>
                 </div>            
@@ -63,4 +67,3 @@
         </div>
     </div>
 <script>msg();</script>
-	

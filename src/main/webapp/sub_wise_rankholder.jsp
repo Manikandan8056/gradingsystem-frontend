@@ -40,7 +40,7 @@ function rankHolder() {
 	
 	let subName = document.getElementById("subCode").value;
 	let formData = "subjectCode="+subName;
-	var url = server + "/gradingsystem-api/SubjectWiseRankServlet?"+formData;
+	var url = server + "/subjectWise?"+formData;
 	var listPromise = $.ajax(url, "GET", formData);
 	
 	listPromise.then(function (response) {

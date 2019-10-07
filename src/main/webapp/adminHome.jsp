@@ -11,10 +11,10 @@
 	</div>
 		<div class="row justify-content-center align-items-center" style="height: 30vh; margin: 0;">
 			
-			<div>
-				<a href="?pageName=define_score_range.jsp" style="font-size: x-large;">Define Score Range</a><br> <br>
-				<a href="?pageName=view_score_range.jsp" style="font-size: x-large;">View Score Range</a><br> <br>
-				<a href="" onclick="deleteFunc()" style="font-size: x-large;">Delete All Score Range</a>
+			<div class="vertical-menu">
+				<a href="?pageName=define_score_range.jsp" style="text-align-last: center;font-size: large;">Define Score Range</a><br> <br>
+				<a href="?pageName=view_score_range.jsp" style="text-align-last: center;font-size: large;">View Score Range</a><br> <br>
+				<a href="" onclick="deleteFunc()" style="text-align-last: center;font-size: large;">Delete All Score Range</a>
 			</div>
 		</div>
 	
@@ -25,7 +25,8 @@
 			  var txt;
 			  if (confirm("Are you sure, Do you want to delete the score Ranges?")) {
 					event.preventDefault();
-				  	var url = server + "/gradingsystem-api/DeleteScoreRangeServlet";
+				  	//var url = server + "/gradingsystem-api/DeleteScoreRangeServlet";
+				  	var url =server + "/deleteScore";
 				  	var deletePromise = $.get(url);
 					
 				  	deletePromise.then(function (response) {

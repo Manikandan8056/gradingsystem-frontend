@@ -4,9 +4,6 @@
 		<div class="col-md-6">
 				<div style="display:none;" id="errorMsg" class="alert alert-primary alert-dismissible fade show" role="alert" >
 				  		<i id="messageBody" style="text-align:center;"></i>
-				  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-				    	<span aria-hidden="true">&times;</span>
-				  </button>
 				</div>
 		</div>
 	</div>
@@ -35,7 +32,9 @@ function listStudent() {
 	let grade = document.getElementById("grade").value;
 
 	let formData = "grade="+grade;
-	var url = server + "/gradingsystem-api/StudentByGradeServlet?"+formData;
+	//var url = server + "/gradingsystem-api/StudentByGradeServlet?"+formData;
+	var url = server + "/SpecficGradeWiseList?"+formData;
+
 	var listPromise = $.ajax(url, "GET", formData);
 	
 	listPromise.then(function (response) {

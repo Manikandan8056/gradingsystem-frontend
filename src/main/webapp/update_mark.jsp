@@ -42,7 +42,7 @@ function insertMarks() {
 	let formData = "regno="+regno + "&mark1="+mark1+ "&mark2="+mark2+ "&mark3="+mark3+ "&mark4="+mark4+ "&mark5="+mark5;		
 	console.log(formData);
 	//send ajax request
-	var url = server + "/gradingsystem-api/UpdateMarkServlet?"+formData;
+	var url = server + "/updateMark?"+formData;
 	var registerPromise = $.ajax(url, "GET", formData);
 	
 	registerPromise.then(function(response) {

@@ -1,7 +1,7 @@
 
 	
 	<div class="row justify-content-center align-items-center"
-		style="height: 20vh; margin: 0;">
+		style="height: 15vh; margin: 0;">
 		<div class="col-md-6">
 				<div style="display:none;" id="errorMsg" class="alert alert-primary alert-dismissible fade show" role="alert">
 				  		<i id="messageBody"></i>
@@ -12,19 +12,16 @@
 		</div>
 	</div>
 	
-	<div class="row justify-content-center align-items-center" style="height: 20vh; margin: 0;">
-		<div>
+	<div class="row justify-content-center align-items-center" style="height: 15vh; margin: 0;">
+		<div class="form-group">
 			<h3>Define Score Range</h3><br>
 				<form onsubmit="updateRange()">
-					Enter the Grade : <input type="text" id="grade" required autofocus style="width: 17vh"><br>
-					<br> 
-					Enter Minimum Score : <input type="number" id="min" min="0" max="100" required><br>
-					<br> 
-					Enter Maximum Score : <input type="number" id="max" min="0" max="100" required><br>
-					<br> 
+					Enter the Grade : <input type="text" id="grade" class="form-control" required autofocus style="width: 17vh"><br>
+					Enter Minimum Score : <input type="number" id="min" min="0" max="100" class="form-control" required><br>
+					Enter Maximum Score : <input type="number" id="max" min="0" max="100" class="form-control" required><br>
 					<div>
-						<input type="submit" class="btn btn-primary" value="Submit" style="margin: 10px;width: 35vh;"><br>
-						<input type="reset" class="btn btn-primary" style="margin: 10px;width: 35vh;">
+						<input type="submit" class="btn btn-primary form-control" value="Submit" style="margin: 10px;width: 35vh;"><br>
+						<input type="reset" class="btn btn-secondary form-control" style="margin: 10px;width: 35vh;">
 					</div>
 				</form>
 		</div>
@@ -42,7 +39,8 @@ function updateRange() {
 	let formData = "grade="+gradeRange + "&min="+minimum + "&max=" + maximum;		
 	console.log(formData);
 	//send ajax request
-	var url = server + "/gradingsystem-api/DefineScoreRangeServlet?"+formData;
+	//var url = server + "/gradingsystem-api/DefineScoreRangeServlet?"+formData;
+	var url = server + "/defineScore?"+formData;
 	var registerPromise = $.ajax(url, "GET", formData);
 	
 	registerPromise.then(function(response) {
