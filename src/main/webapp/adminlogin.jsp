@@ -15,7 +15,7 @@
 		<div class="w-100"></div>
 		
 		<div class="col-md-6 text-center" style="box-shadow: 5px 8px 18px -8px rgba(0, 0, 0, 0.5); border-radius: 10px; height:55vh;">
-			<form class="mx-auto formstyle" method="get" onsubmit="adminLogin()" style="font: message-box;opacity: 0.8;border-radius: 10px;background-color: black;color: white;padding:0 20px;">
+			<form class="mx-auto formstyle"  onsubmit="adminLogin()" style="font: message-box;opacity: 0.8;border-radius: 10px;background-color: black;color: white;padding:0 20px;">
 				<div class="row justify-content-center align-items-center" style="height:300px">
 					<div class="col">
 						<h3>Admin Login</h3>
@@ -60,7 +60,7 @@ function adminLogin() {
 	let formData = "username="+userName + "&password="+passWord;	
 	//send ajax request
 	var url = server + "/gradingsystem-api/AdminLoginServlet?"+formData ;
-	var login = $.ajax(url);
+	var login = $.ajax(url, "GET", formData);
 	
 	login.then(function (response) {
 		console.log(response.errorMessage);
