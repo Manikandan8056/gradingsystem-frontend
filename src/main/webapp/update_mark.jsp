@@ -4,9 +4,6 @@
 		<div class="col-md-6">
 				<div style="display:none;" id="errorMsg" class="alert alert-primary alert-dismissible fade show" role="alert">
 				  		<i id="messageBody"></i>
-				  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-				    	<span aria-hidden="true">&times;</span>
-				  </button>
 				</div>
 		</div>
 	</div>
@@ -47,7 +44,7 @@ function insertMarks() {
 	
 	registerPromise.then(function(response) {
 		console.log("Error:" + JSON.stringify(response));
-		var msg = JSON.parse(response).responseMessage;
+		var msg = response.responseMessage;
 
 		if(msg == "success"){			
 			document.querySelector("#messageBody").innerHTML = "<font color='green'>Reg-No :<b>"+regno+"</b> Mark is Updated</font>";

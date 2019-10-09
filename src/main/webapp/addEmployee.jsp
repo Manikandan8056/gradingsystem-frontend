@@ -15,15 +15,15 @@
                         aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <div id="registermsg" align=center style="color: red;"></div>
-	                    <form method="post" onsubmit="AddNewEmployee()">
+                    <div id="messageBody" align=center></div>
+	                    <form method="post" onsubmit="addEmployee()">
 	                        <div class="form-group">
 	                            <input type="text" class="form-control" autocomplete="off" name="name"
 	                                id="name" placeholder="employee name" required="required" >
 	                        </div>
 	                        <div class="form-group">
-	                            <input type="email" class="form-control" autocomplete="off" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
-	                            title="Enter valid email id" placeholder="email" required="required" >
+	                            <input type="email" class="form-control" autocomplete="off" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  title="Enter valid email id" placeholder="email" required="required" >
+
 	                        </div>
 	                        <div class="form-group">
 	                            <input type="number" class="form-control" autocomplete="off"  name="mobile" id="mobile"
@@ -52,10 +52,15 @@
 	                        </div>
 	                       
 	                        <div class="form-group" align=center>
+
 	                            <button type="submit" class="btn btn-primary btn-xs">Add
 	                                </button>
 	                            &nbsp;
 	                            <button type="reset" class="btn btn-secondary btn-xs">clear</button>
+
+	                            <button type="submit" class="btn btn-primary btn-xs">Add</button>&nbsp;
+	                            <button type="reset" class="btn btn-primary btn-xs">clear</button>
+
 	                        </div>                    
 	                    </form>
                 </div>            
@@ -63,4 +68,37 @@
         </div>
     </div>
 <script>msg();</script>
+
+<script>
+function addEmployee() {
+	
+	event.preventDefault();
+	// Get form values
+	let name = document.getElementById("name").value;
+	let mailId = document.getElementById("email").value;
+	let mobNo = document.getElementById("mobile").value;
+	let password = document.getElementById("password").value;
+	let role = document.getElementById("role").value;
+	let subject = document.getElementById("subject").value;
+	// prepare formdata
+	let formData = "name="+name + "&email="+mailId+ "&mobno="+mobNo+ "&password="+password+ "&role="+role+ "&subject="+subject;		
+	console.log(formData);
+	//send ajax request
+	var url = server + "/gradingsystem-api/EmployeeServlet?"+formData;
+	var registerPromise = $.ajax(url, "GET", formData);
+	
+	registerPromise.then(function(response) {
+		console.log("Error:" + JSON.stringify(response));
+		var msg = JSON.parse(response).responseMessage;
+
+		if(msg == "success"){			
+			document.querySelector("#messageBody").innerHTML = "<font color='green'>"+ msg +"</font>";
+		}else{
+			document.querySelector("#messageBody").innerHTML = "<font color='red'>" + msg + "</font>";
+		}
+	});
+}
+
+/* <button class="btn btn-outline-success" onclick="updateMark()">Update</button> */
+</script>
 	

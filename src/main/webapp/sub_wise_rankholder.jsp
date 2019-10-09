@@ -3,9 +3,6 @@
 		<div class="col-md-6">
 				<div style="display:none;" id="errorMsg" class="alert alert-primary alert-dismissible fade show" role="alert" >
 				  		<i id="messageBody" style="text-align:center;"></i>
-				  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-				    	<span aria-hidden="true">&times;</span>
-				  </button>
 				</div>
 		</div>
 	</div>
@@ -45,7 +42,7 @@ function rankHolder() {
 	
 	listPromise.then(function (response) {
 
-		var msg = JSON.parse(response).errMessage;
+		var msg = response.errMessage;
 		console.log(msg);
 
 		if(msg != undefined){
@@ -55,7 +52,7 @@ function rankHolder() {
 			document.querySelector("#messageBody").innerHTML = "<font color='green'><b>Perfect</b></font>";
 			$('#errorMsg').css({'display':'block'});
 			
-	        var list = JSON.parse(response);
+	        var list = response;
 	        cont = "<h3>Subject wise RankHolders : ( "+subName+" )</h3><table class='table'><thead><tr><th>S.No</th><th>Student Name</th><th>Register Number</th><th>Mark</th></tr></thead><tbody>";
 	
 	        for (let stud of list) {

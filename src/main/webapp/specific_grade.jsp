@@ -39,7 +39,7 @@ function listStudent() {
 	
 	listPromise.then(function (response) {
 
-		var msg = JSON.parse(response).errMessage;
+		var msg = response.errMessage;
 		console.log(msg);
 
 		if(msg != undefined){
@@ -49,7 +49,7 @@ function listStudent() {
 			document.querySelector("#messageBody").innerHTML = "<font color='green'><b>Perfect</b></font>";
 			$('#errorMsg').css({'display':'block'});
 			
-	        var list = JSON.parse(response);
+	        var list = response;
 	        cont = "<h3>List Of Students :</h3><table class='table'><thead><tr><th>S.No</th><th>Student Name</th><th>Register Number</th><th>Percentage ( % )</th><th>Grade</th></tr></thead><tbody>";
 	
 	        for (let stud of list) {

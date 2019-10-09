@@ -6,9 +6,6 @@
 		<div class="col-md-6">
 			<div style="display:none;" id="errorMsg" class="alert alert-danger alert-dismissible fade show" role="alert">
 			  		<i id="messageBody"></i>
-			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			    	<span aria-hidden="true">&times;</span>
-			  </button>
 			</div>
 		</div>
 		
@@ -65,9 +62,13 @@
 		var login = $.ajax(url, "GET", formData);
 		
 		login.then(function (response) {
-	
-			var msg = JSON.parse(response).errorMessage;
+
+			var  data = response;
+			console.log(data);
+			
+			var msg = data.errorMessage;
 			console.log(msg);
+			
 			localstorage.setItem("details",response);
 			if(msg != undefined){
 				document.querySelector("#messageBody").innerHTML = "<font color='red'>"+msg+"</font>";  

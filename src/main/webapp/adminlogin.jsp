@@ -6,16 +6,13 @@
 		<div class="col-md-6">
 			<div style="display:none;" id="errorMsg" class="alert alert-danger alert-dismissible fade show" role="alert">
 			  		<i id="messageBody"></i>
-			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			    	<span aria-hidden="true">&times;</span>
-			  </button>
 			</div>
 		</div>
 		
 		<div class="w-100"></div>
 		
 		<div class="col-md-6 text-center" style="box-shadow: 5px 8px 18px -8px rgba(0, 0, 0, 0.5); border-radius: 10px; height:55vh;">
-			<form class="mx-auto formstyle" method="get" onsubmit="adminLogin()" style="font: message-box;opacity: 0.8;border-radius: 10px;background-color: black;color: white;padding:0 20px;">
+			<form class="mx-auto formstyle"  onsubmit="adminLogin()" style="font: message-box;opacity: 0.8;border-radius: 10px;background-color: black;color: white;padding:0 20px;">
 				<div class="row justify-content-center align-items-center" style="height:300px">
 					<div class="col">
 						<h3>Admin Login</h3>
@@ -61,12 +58,14 @@ function adminLogin() {
 	//send ajax request
 	//var url = server + "/gradingsystem-api/AdminLoginServlet?"+formData ;
 	var url = server + "/adminlogin?"+formData ;
-	var login = $.ajax(url);
+	var login = $.post(url);
 	
 	login.then(function (response) {
-		console.log(response.errorMessage);
+
+		var data = response; //JSON.parse(response)
+		console.log(data);
 		
-		var msg = JSON.parse(response).errorMessage;
+		var msg = data.errorMessage;
 		console.log(msg);
 
 		if(msg != undefined){

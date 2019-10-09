@@ -3,9 +3,6 @@
 		<div class="col-md-6">
 				<div style="display:none;" id="errorMsg" class="alert alert-primary alert-dismissible fade show" role="alert">
 				  		<i id="messageBody"></i>
-				  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-				    	<span aria-hidden="true">&times;</span>
-				  </button>
 				</div>
 		</div>
 	</div>
@@ -40,7 +37,7 @@ function getResult() {
 	resultPromise.then(function (response) {
 
 		console.log("Ajax entry");
-		var msg = JSON.parse(response).errMsg;
+		var msg = response.errMsg;
 		console.log(msg);
 
 		if(msg != undefined){
@@ -50,8 +47,8 @@ function getResult() {
 			document.querySelector("#messageBody").innerHTML = "<font color='green'><b>Perfect</b></font>";
 			$('#errorMsg').css({'display':'block'});
 			
-	        var list = JSON.parse(response).marks;
-			var student = JSON.parse(response).SD;
+	        var list = response.marks;
+			var student = response.SD;
 		
 	        //document.getElementById("studlist").innerHTML = "";
 	        cont = "<h4>Result:</h4><br/><h5>Student Name : "+student.studentName+"</h5><h5>Register Number : "+student.regNo+"</h5><br>";

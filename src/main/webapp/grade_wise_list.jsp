@@ -18,13 +18,13 @@ function listStudent() {
 	
 	listPromise.then(function (response) {
 
-		var msg = JSON.parse(response).errMessage;
+		var msg = response.errMessage;
 		console.log(msg);
 
 		if(msg != undefined){
 			document.querySelector("#message").innerHTML = "<font color='red'>" + msg + "</font>";
 		}else{
-		        var list = JSON.parse(response);
+		        var list = response;
 		        //document.getElementById("studlist").innerHTML = "";
 		        cont = "<table class='table table-hover table-bordered table-striped'><thead><tr><th>S.No</th><th>Student Name</th><th>Register Number</th><th>Percentage ( % )</th><th>Grade</th></tr></thead><tbody>";
 		
