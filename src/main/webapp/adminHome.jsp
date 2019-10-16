@@ -26,12 +26,12 @@
 			  if (confirm("Are you sure, Do you want to delete the score Ranges?")) {
 					event.preventDefault();
 				  	//var url = server + "/gradingsystem-api/DeleteScoreRangeServlet";
-				  	var url =server + "/deleteScore";
-				  	var deletePromise = $.get(url);
+				  	var url =server + "/score/deleteScore";
+				  	var deletePromise = $.post(url);
 					
 				  	deletePromise.then(function (response) {
-						console.log("Error:" + JSON.parse(response).message);
-						var status = JSON.parse(response).message;
+						console.log("Error:" + response.message);
+						var status = response.message;
 						console.log(status);
 						
 						if(status == "success"){

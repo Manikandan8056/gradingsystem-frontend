@@ -58,8 +58,8 @@
 		let formData = "username="+userName + "&password="+passWord;	
 		//send ajax request
 		//var url = server + "/gradingsystem-api/UserLoginServlet?"+formData;
-		var url = server + "/userlogin?"+formData;
-		var login = $.ajax(url, "GET", formData);
+		var url = server + "/user/login?"+formData;
+		var login = $.post(url);
 		
 		login.then(function (response) {
 
@@ -69,7 +69,7 @@
 			var msg = data.errorMessage;
 			console.log(msg);
 			
-			localstorage.setItem("details",response);
+			localStorage.setItem("details",response);
 			if(msg != undefined){
 				document.querySelector("#messageBody").innerHTML = "<font color='red'>"+msg+"</font>";  
 				$('#errorMsg').css({'display':'block'});

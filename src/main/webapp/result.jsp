@@ -40,16 +40,20 @@ function getResult() {
 		var msg = response.errMsg;
 		console.log(msg);
 
+		var student = response.studentGrade;
+		var list = response.marks;
+		//var student = response.SD;
+
+		console.log(student);
+		console.log(list);
+		
 		if(msg != undefined){
 			document.querySelector("#messageBody").innerHTML = "<font color='red'>" + msg + "</font>";
 			$('#errorMsg').css({'display':'block'});
 		}else{ 
-			document.querySelector("#messageBody").innerHTML = "<font color='green'><b>Perfect</b></font>";
+			document.querySelector("#messageBody").innerHTML = "<font color='green'><b>" + student.studentName + " Result</b></font>";
 			$('#errorMsg').css({'display':'block'});
 			
-	        var list = response.marks;
-			var student = response.SD;
-		
 	        //document.getElementById("studlist").innerHTML = "";
 	        cont = "<h4>Result:</h4><br/><h5>Student Name : "+student.studentName+"</h5><h5>Register Number : "+student.regNo+"</h5><br>";
 	

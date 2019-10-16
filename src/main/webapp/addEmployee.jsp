@@ -84,7 +84,7 @@ function addEmployee() {
 	let formData = "name="+name + "&email="+mailId+ "&mobno="+mobNo+ "&password="+password+ "&role="+role+ "&subject="+subject;		
 	console.log(formData);
 	//send ajax request
-	var url = server + "/gradingsystem-api/EmployeeServlet?"+formData;
+	var url = server + "/admin/addEmployee?"+formData;
 	var registerPromise = $.ajax(url, "GET", formData);
 	
 	registerPromise.then(function(response) {

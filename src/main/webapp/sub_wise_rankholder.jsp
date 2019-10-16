@@ -38,6 +38,9 @@ function rankHolder() {
 	let subName = document.getElementById("subCode").value;
 	let formData = "subjectCode="+subName;
 	var url = server + "/subjectWise?"+formData;
+
+	document.getElementById("tbody").innerHTML="";
+	
 	var listPromise = $.ajax(url, "GET", formData);
 	
 	listPromise.then(function (response) {
@@ -49,7 +52,7 @@ function rankHolder() {
 			document.querySelector("#messageBody").innerHTML = "<font color='red'>"+msg+"</font>";
 			$('#errorMsg').css({'display':'block'});
 		}else{
-			document.querySelector("#messageBody").innerHTML = "<font color='green'><b>Perfect</b></font>";
+			document.querySelector("#messageBody").innerHTML = "<font color='green'><b>Subject code: "+subName+" </b> wise mark List</font>";
 			$('#errorMsg').css({'display':'block'});
 			
 	        var list = response;

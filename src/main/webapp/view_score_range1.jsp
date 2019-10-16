@@ -7,11 +7,11 @@
 function viewRange() {
 	//send ajax request
 	//var url = server + "/gradingsystem-api/ViewScoreRangeServlet";
-	var url = server + "/viewScore";
+	var url = server + "/score/viewScore";
 	var viewPromise = $.ajax(url, "GET");
 	
 	viewPromise.then(function (response) {
-        var list = JSON.parse(response);
+        var list = response;
         //document.getElementById("studlist").innerHTML = "";
         cont = "<table class='table'><thead><tr><th>S.No</th><th>GRADE</th><th>MINIMUN-RANGE</th><th>MAXIMUM-RANGE</th></tr></thead><tbody>";
 

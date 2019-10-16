@@ -33,20 +33,17 @@ function listStudent() {
 
 	let formData = "grade="+grade;
 	//var url = server + "/gradingsystem-api/StudentByGradeServlet?"+formData;
-	var url = server + "/SpecficGradeWiseList?"+formData;
+	var url = server + "/grade/SpecficGradeWiseList?"+formData;
+
+	document.getElementById("tbody").innerHTML="";
 
 	var listPromise = $.ajax(url, "GET", formData);
-	
+
 	listPromise.then(function (response) {
 
-		var msg = response.errMessage;
-		console.log(msg);
-
-		if(msg != undefined){
-			document.querySelector("#messageBody").innerHTML = "<font color='red'>"+msg+"</font>";
-			$('#errorMsg').css({'display':'block'});
-		}else{
-			document.querySelector("#messageBody").innerHTML = "<font color='green'><b>Perfect</b></font>";
+		console.log(response);
+		
+			document.querySelector("#messageBody").innerHTML = "<font color='green'><b>Grade: "+grade+"</b> wise List</font>";
 			$('#errorMsg').css({'display':'block'});
 			
 	        var list = response;
@@ -68,8 +65,18 @@ function listStudent() {
 	
 	        var list = document.getElementById("tbody");
 	        list.innerHTML = cont;
-		}
-    });
+		
+    },
+	function(response) {
+		console.log("error");	
+		console.log(response);
+		
+		var msg = response.responseJSON.errorMessage;
+		console.log(msg);
+			document.querySelector("#messageBody").innerHTML = "<font color='red'>" + msg + "</font>";
+			$('#errorMsg').css({'display':'block'});
+		
+	});
 }
 
 </script>

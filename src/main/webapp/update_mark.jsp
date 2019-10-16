@@ -1,6 +1,6 @@
 	
 	<div class="row justify-content-center align-items-center"
-		style="height: 20vh; margin: 0;">
+		style="height: 10vh; margin: 0;">
 		<div class="col-md-6">
 				<div style="display:none;" id="errorMsg" class="alert alert-primary alert-dismissible fade show" role="alert">
 				  		<i id="messageBody"></i>
@@ -36,23 +36,30 @@ function insertMarks() {
 	let mark4 = document.getElementById("chemistry").value;
 	let mark5 = document.getElementById("computer").value;
 	// prepare formdata
-	let formData = "regno="+regno + "&mark1="+mark1+ "&mark2="+mark2+ "&mark3="+mark3+ "&mark4="+mark4+ "&mark5="+mark5;		
+	let formData = {"regno": regno ,"mark1" :mark1 ,"mark2" : mark2 ,"mark3":mark3,"mark4":mark4,"mark5":mark5};		
 	console.log(formData);
 	//send ajax request
-	var url = server + "/updateMark?"+formData;
-	var registerPromise = $.ajax(url, "GET", formData);
+	var url = server + "/updateMark";
+	var registerPromise = $.post(url, formData);
 	
 	registerPromise.then(function(response) {
-		console.log("Error:" + JSON.stringify(response));
-		var msg = response.responseMessage;
-
-		if(msg == "success"){			
-			document.querySelector("#messageBody").innerHTML = "<font color='green'>Reg-No :<b>"+regno+"</b> Mark is Updated</font>";
+		console.log(response);
+		
+		var msg = response;
+		console.log(msg);
+		
+			document.querySelector("#messageBody").innerHTML = "<font color='green'>Reg-No :<b>"+regno+"</b> Mark is Updated Successfully</font>";
 			$('#errorMsg').css({'display':'block'});
-		}else{
+	},
+	function(response) {
+		console.log("error");	
+		console.log(response);
+		
+		var msg = response.responseJSON.errorMessage;
+		console.log(msg);
 			document.querySelector("#messageBody").innerHTML = "<font color='red'>" + msg + "</font>";
 			$('#errorMsg').css({'display':'block'});
-		}
+		
 	});
 }
 

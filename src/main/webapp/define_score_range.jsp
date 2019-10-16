@@ -5,9 +5,6 @@
 		<div class="col-md-6">
 				<div style="display:none;" id="errorMsg" class="alert alert-primary alert-dismissible fade show" role="alert">
 				  		<i id="messageBody"></i>
-				  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-				    	<span aria-hidden="true">&times;</span>
-				  </button>
 				</div>
 		</div>
 	</div>
@@ -40,14 +37,22 @@ function updateRange() {
 	console.log(formData);
 	//send ajax request
 	//var url = server + "/gradingsystem-api/DefineScoreRangeServlet?"+formData;
-	var url = server + "/defineScore?"+formData;
+	console.log("server=>"+server);
+	var url = server + "/score/defineScore?"+formData;
 	var registerPromise = $.ajax(url, "GET", formData);
 	
 	registerPromise.then(function(response) {
-		console.log("Error:" + JSON.stringify(response));
-		var msg = JSON.parse(response).responseMessage;
+		console.log("success:" + response.infoMessage);
+		var msg = response.infoMessage;
 		console.log(msg);
 		//alert(msg);
+		if( msg == "Success" ){
+			document.querySelector("#messageBody").innerHTML = "<font color='green'>Successfully updated</font>";
+			$('#errorMsg').css({'display':'block'});
+		}
+	},function(error) {
+		var msg = error.responseJSON.errorMessage;
+		console.log("Error:" + msg);
 		if( msg != undefined ){
 			document.querySelector("#messageBody").innerHTML = "<font color='red'>"+msg+"</font>";
 			$('#errorMsg').css({'display':'block'});

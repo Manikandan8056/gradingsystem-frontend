@@ -13,7 +13,7 @@
 function viewRange() {
 	//send ajax request
 	//var url = server + "/gradingsystem-api/ViewScoreRangeServlet";
-	var url = server + "/viewScore" 
+	var url = server + "/score/viewScore" 
 	var viewPromise = $.ajax(url, "GET");
 	
 	viewPromise.then(function (response) {
@@ -41,8 +41,10 @@ function viewRange() {
 	
 	        var list = document.getElementById("tbody");
 	        list.innerHTML = cont;
-	    });
+	    }
+});
 }
+
 
  viewRange();
  </script>
