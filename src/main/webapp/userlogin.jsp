@@ -24,7 +24,7 @@
 											UserName
 										</div>
 									</div>
-									<input type="text" autocomplete="off" id="username" class="form-control" placeholder="UserName" required autofocus>
+									<input type="text" autocomplete="off" id="username" class="form-control" pattern="[A-Za-z]{1,20}$" title="Enter only alphabets and less than 20 letter" placeholder="UserName" required autofocus>
 								</div>
 							</div>
 							<div class="form-group">
@@ -34,7 +34,8 @@
 											Password
 										</div>
 									</div>
-									<input type="password" id="password" class="form-control" placeholder="Password">
+									<input type="password" id="password" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
+	                            title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" placeholder="Password">
 								</div>
 							</div>
 							<input type="submit" class="btn btn-primary" value="Login"> 
@@ -66,19 +67,21 @@
 			var  data = response;
 			console.log(data);
 			
-			var msg = data.errorMessage;
-			console.log(msg);
-			
-			localStorage.setItem("details",response);
-			if(msg != undefined){
-				document.querySelector("#messageBody").innerHTML = "<font color='red'>"+msg+"</font>";  
-				$('#errorMsg').css({'display':'block'});
-			}else{
 				document.querySelector("#messageBody").innerHTML = "<font color='green'>You are successfully Logged in.</font>";
 				$('#errorMsg').css({'display':'block'});
 				window.location.replace('userfeature.jsp') 
-			}
-	    });
+			
+	    },
+		function(response) {
+			console.log("error");	
+			console.log(response);
+			
+			var msg = response.responseJSON.errorMessage;
+			console.log(msg);
+				document.querySelector("#messageBody").innerHTML = "<font color='red'>" + msg + "</font>";
+				$('#errorMsg').css({'display':'block'});
+			
+		});
 	}
 </script>
 </div>

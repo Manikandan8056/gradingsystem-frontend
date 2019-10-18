@@ -38,14 +38,12 @@ function updateRange() {
 	//send ajax request
 	//var url = server + "/gradingsystem-api/DefineScoreRangeServlet?"+formData;
 	console.log("server=>"+server);
-	var url = server + "/score/defineScore?"+formData;
-	var registerPromise = $.ajax(url, "GET", formData);
+	var url = server + "/score/defineScore";
+	var registerPromise = $.post(url, formData);
 	
 	registerPromise.then(function(response) {
 		console.log("success:" + response.infoMessage);
 		var msg = response.infoMessage;
-		console.log(msg);
-		//alert(msg);
 		if( msg == "Success" ){
 			document.querySelector("#messageBody").innerHTML = "<font color='green'>Successfully updated</font>";
 			$('#errorMsg').css({'display':'block'});

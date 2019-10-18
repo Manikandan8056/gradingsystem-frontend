@@ -44,17 +44,6 @@
 	                        	</label>
 	                        </div>
 	                        
-	                        <div class="form-group" >
-								<select id="subject" class="form-control">
-									<option value="" selected disabled>-- Select subject --</option>
-									<option value="ENGLISH">ENGLISH</option>
-									<option value="MATHS">MATHS</option>
-									<option value="PHYSICS">PHYSICS</option>
-									<option value="CHEMISTRY">CHEMISTRY</option>
-									<option value="COMPUTER">COMPUTER</option>
-								</select><br>
-	                        </div>
-	                       
 	                        <div class="form-group" align=center>
 	                            <button type="submit" class="btn btn-primary btn-xs">Save
 	                                </button>

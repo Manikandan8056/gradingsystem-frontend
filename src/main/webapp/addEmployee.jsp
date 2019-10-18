@@ -41,25 +41,10 @@
 								<input type="radio" class="form-group" name="role" id="role"  value="T" required><span id="role">&nbsp;Teacher</span>
 	                        </div>
 	                        
-	                        <div class="form-group">
-								<select id="subject" class="form-control">
-									<option value="ENGLISH">ENGLISH</option>
-									<option value="MATHS">MATHS</option>
-									<option value="PHYSICS">PHYSICS</option>
-									<option value="CHEMISTRY">CHEMISTRY</option>
-									<option value="COMPUTER">COMPUTER</option>
-								</select><br><br>
-	                        </div>
-	                       
 	                        <div class="form-group" align=center>
 
-	                            <button type="submit" class="btn btn-primary btn-xs">Add
-	                                </button>
-	                            &nbsp;
-	                            <button type="reset" class="btn btn-secondary btn-xs">clear</button>
-
 	                            <button type="submit" class="btn btn-primary btn-xs">Add</button>&nbsp;
-	                            <button type="reset" class="btn btn-primary btn-xs">clear</button>
+	                            <button type="reset" class="btn btn-secondary btn-xs">clear</button>
 
 	                        </div>                    
 	                    </form>
@@ -79,23 +64,27 @@ function addEmployee() {
 	let mobNo = document.getElementById("mobile").value;
 	let password = document.getElementById("password").value;
 	let role = document.getElementById("role").value;
-	let subject = document.getElementById("subject").value;
 	// prepare formdata
-	let formData = "name="+name + "&email="+mailId+ "&mobno="+mobNo+ "&password="+password+ "&role="+role+ "&subject="+subject;		
-	console.log(formData);
+	let formData = "name="+name + "&email="+mailId+ "&mobno="+mobNo+ "&password="+password+ "&role="+role;		
 	//send ajax request
-	var url = server + "/admin/addEmployee?"+formData;
-	var registerPromise = $.ajax(url, "GET", formData);
+	var url = server + "/admin/addEmployee";
+	var registerPromise = $.post(url, formData);
 	
 	registerPromise.then(function(response) {
 		console.log("Error:" + JSON.stringify(response));
-		var msg = JSON.parse(response).responseMessage;
-
-		if(msg == "success"){			
-			document.querySelector("#messageBody").innerHTML = "<font color='green'>"+ msg +"</font>";
-		}else{
+		var msg = response.status;
+		
+			document.querySelector("#messageBody").innerHTML = "<font color='green'>Successfully added</font>";
+	},
+	function(response) {
+		console.log("error");	
+		console.log(response);
+		
+		var msg = response.errorMessage;
+		console.log(msg);
 			document.querySelector("#messageBody").innerHTML = "<font color='red'>" + msg + "</font>";
-		}
+			$('#errorMsg').css({'display':'block'});
+		
 	});
 }
 

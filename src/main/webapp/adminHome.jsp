@@ -30,8 +30,9 @@
 				  	var deletePromise = $.post(url);
 					
 				  	deletePromise.then(function (response) {
-						console.log("Error:" + response.message);
-						var status = response.message;
+						console.log("Error:" + response.status);
+						var status = response.status;
+						var error = response.errorMessage;
 						console.log(status);
 						
 						if(status == "success"){
@@ -39,7 +40,7 @@
 							$('#errorMsg').css({'display':'block'});
 							txt = "Score range deleted successfully";
 						}else{
-							document.querySelector("#messageBody").innerHTML = "<font color='red'>"+status+"</font>";  
+							document.querySelector("#messageBody").innerHTML = "<font color='red'>"+error+"</font>";  
 							$('#errorMsg').css({'display':'block'}); 
 						}
 
