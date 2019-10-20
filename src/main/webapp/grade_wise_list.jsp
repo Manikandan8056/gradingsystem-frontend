@@ -5,7 +5,7 @@
 </head> -->
 
 <div>
-	<h2>List of Student based on Grading (Top-Bottom)</h2>
+	<h2>List of Student based on Grading </h2>
 	<br />
 	<div id="tbody"></div>
 </div>

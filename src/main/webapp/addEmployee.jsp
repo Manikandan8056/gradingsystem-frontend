@@ -11,7 +11,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Add Employee</h4>
-                    <button type="button" class="close" href="adminHome.jsp" data-dismiss="modal"
+                    <button type="button" class="close" onClick="window.location='?pageName=adminHome.jsp';" data-dismiss="modal"
                         aria-hidden="true">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -19,15 +19,17 @@
 	                    <form method="post" onsubmit="addEmployee()">
 	                        <div class="form-group">
 	                            <input type="text" class="form-control" autocomplete="off" name="name"
-	                                id="name" placeholder="employee name" required="required" >
+	                                id="name" pattern="[A-Za-z]{1,20}$" title="Enter only alphabets and less than 20 letter" placeholder="employee name" required="required" >
 	                        </div>
 	                        <div class="form-group">
-	                            <input type="email" class="form-control" autocomplete="off" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  title="Enter valid email id" placeholder="email" required="required" >
+	                            <input type="email" class="form-control" autocomplete="off" name="email" id="email"  pattern="[a-z0-9._%+-]+@[a-z-]+\.[a-z]{2,}$"
+	                            title="Enter valid email id" placeholder="email" required="required" >
 
 	                        </div>
 	                        <div class="form-group">
 	                            <input type="number" class="form-control" autocomplete="off"  name="mobile" id="mobile"
-	                               pattern="[0-9]{1,10}" title="Please enter 10 digits mobile number" placeholder="Mobile Number" required="required" >
+	                               pattern="[6-9]{1}[0-9]{9}" title="Enter 10 digits mobile number, Phone number with 7-9 and remaing 9 digit with 0-9" 
+	                               placeholder="Mobile Number" required="required" >
 	                        </div>
 	                        
 	                        <div class="form-group">

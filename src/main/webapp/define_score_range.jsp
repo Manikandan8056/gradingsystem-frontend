@@ -13,7 +13,7 @@
 		<div class="form-group">
 			<h3>Define Score Range</h3><br>
 				<form onsubmit="updateRange()">
-					Enter the Grade : <input type="text" id="grade" class="form-control" required autofocus style="width: 17vh"><br>
+					Enter the Grade : <input type="text" id="grade" class="form-control" pattern="[A-Za-z]{1}$" title="Enter only one alphabets letter" required autofocus style="width: 17vh"><br>
 					Enter Minimum Score : <input type="number" id="min" min="0" max="100" class="form-control" required><br>
 					Enter Maximum Score : <input type="number" id="max" min="0" max="100" class="form-control" required><br>
 					<div>

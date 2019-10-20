@@ -13,7 +13,7 @@
 			<br>
 			<form onsubmit="getResult()">
 				Enter the Register Number : <input type="number" id="regno" min="1001"
-					max="1100" required autofocus /><br> <br> <input
+					max="1020" required autofocus /><br> <br> <input
 					type="submit" class="btn btn-primary" value="Enter" /> <input
 					type="reset" class="btn btn-primary"> <br> <br> <br>
 		
@@ -32,13 +32,12 @@ function getResult() {
 	let formData = "regno="+regNo;
 	//var url = server + "/gradingsystem-api/StudentResultServlet?"+formData;
 	var url =server + "/studentResult?"+formData;
+
+	document.getElementById("cbody").innerHTML="";
+	
 	var resultPromise = $.ajax(url, "GET", formData);
 	
 	resultPromise.then(function (response) {
-
-		console.log("Ajax entry");
-		var msg = response.errMsg;
-		console.log(msg);
 
 		var student = response.studentGrade;
 		var list = response.marks;
@@ -47,10 +46,6 @@ function getResult() {
 		console.log(student);
 		console.log(list);
 		
-		if(msg != undefined){
-			document.querySelector("#messageBody").innerHTML = "<font color='red'>" + msg + "</font>";
-			$('#errorMsg').css({'display':'block'});
-		}else{ 
 			document.querySelector("#messageBody").innerHTML = "<font color='green'><b>" + student.studentName + " Result</b></font>";
 			$('#errorMsg').css({'display':'block'});
 			
@@ -65,8 +60,18 @@ function getResult() {
 	
 	        var list = document.getElementById("cbody");
 	        list.innerHTML = cont; 
-		}
-    });
+		
+    },
+	function(response) {
+		console.log("error");	
+		console.log(response);
+		
+		var msg = response.responseJSON.errorMessage;
+		console.log(msg);
+			document.querySelector("#messageBody").innerHTML = "<font color='red'>" + msg + "</font>";
+			$('#errorMsg').css({'display':'block'});
+		
+	});
 }
 
 </script>

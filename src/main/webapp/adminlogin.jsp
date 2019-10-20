@@ -34,7 +34,7 @@
 										</div>
 									</div>
 									<input type="password" id="password" class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" 
-	                            title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters"placeholder="Password">
+	                            title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters" placeholder="Password">
 								</div>
 							</div>
 							<input type="submit" class="btn btn-primary" value="Login"> 

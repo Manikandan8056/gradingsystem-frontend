@@ -12,10 +12,13 @@
 		<div>
 			<h3>List of Student on a Specific Grade</h3>
 			<br>
-			<form onsubmit="listStudent()">
-				Enter a Specific Grade : <input type="text" id="grade" required autofocus /><br><br> 
-				<input type="submit" class="btn btn-primary" value="Enter" />
-				<input type="reset" class="btn btn-primary"> <br><br>
+			<form onsubmit="listStudent()" >
+				Enter a Specific Grade : <input type="text" autocomplete="off" id="grade" class="form-control" pattern="[A-Za-z]{1}$" title="Enter only one alphabets letter" 
+				required autofocus /><br><br> 
+				<div class="text-center">
+					<input type="submit" class="btn btn-primary" value="Enter" />
+					<input type="reset" class="btn btn-primary"> <br><br>
+				</div>
 			</form><br><br/><br>
 		</div>
 	</div>
@@ -42,7 +45,7 @@ function listStudent() {
 	listPromise.then(function (response) {
 
 		console.log(response);
-		
+
 			document.querySelector("#messageBody").innerHTML = "<font color='green'><b>Grade: "+grade+"</b> wise List</font>";
 			$('#errorMsg').css({'display':'block'});
 			

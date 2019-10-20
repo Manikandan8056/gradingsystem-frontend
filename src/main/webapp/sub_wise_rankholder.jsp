@@ -7,25 +7,27 @@
 		</div>
 	</div>
 
-	<div class="row justify-content-center align-items-center" style="height: 20vh; margin: 0;">
+	<div class="row justify-content-center align-items-center" style="height: 30vh; margin: 0;">
 		<div>
 			<h3>Subject wise RankHolder</h3><br>
 			<form onsubmit="rankHolder()">
-				Select a Subject : 
-				<select id="subCode">
+				<label for="" class="text-center text-light bg-info form-control">Select a subject</label> 
+				<select id="subCode" class="form-control">
 					<option value="ENG11">ENGLISH</option>
 					<option value="MAT12">MATHS</option>
 					<option value="PHY13">PHYSICS</option>
 					<option value="CHE14">CHEMISTRY</option>
 					<option value="COM15">COMPUTER</option>
 				</select><br><br> 
-				<input type="submit" class="btn btn-primary" value="Enter" />
-				<input type="reset" class="btn btn-primary"> <br><br>
+				<div class="text-center">
+					<button class="btn btn-primary" >Enter </button>
+					<button class="btn btn-secondary" onClick="window.location='?pageName=userHome.jsp';">Back </button> <br><br>
+				</div>
 			</form><br><br/><br><br>
 		</div>
 	</div>
 	
-	<div class="row justify-content-center align-items-center" style="height: 60vh; margin: 09vh;">
+	<div class="row justify-content-center align-items-center" style="height: 80vh; margin: 09vh;">
 		<div>
 			<div id="tbody"></div>
 		</div>

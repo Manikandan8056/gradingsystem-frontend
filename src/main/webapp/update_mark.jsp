@@ -13,7 +13,7 @@
 			<h3>Update Student Marks</h3>
 			<br>
 			<form onsubmit="insertMarks()">
-				Enter the Register Number : <input type="number" id="regno" min="1000" max="1100" required autofocus /><br><br>
+				Enter the Register Number : <input type="number" id="regno" min="1000" max="1020" required autofocus /><br><br>
 				Enter the Mark for ENGLISH : <input type="number" id="english" min="0" max="100" required><br><br>
 				Enter the Mark for MATHS : <input type="number" id="maths" min="0" max="100" required><br><br>
 				Enter the Mark for PHYSICS : <input type="number" id="physics" min="0" max="100" required><br><br>

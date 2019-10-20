@@ -40,7 +40,7 @@
              -->
             <div class="text-center">
                 <button type="submit" class="btn btn-outline-info" onclick="">Update</button>
-                <button class="btn btn-outline-secondary" href="?pageName=adminHome.jsp">Back</button>
+                <button class="btn btn-outline-secondary" onClick="window.location='?pageName=adminHome.jsp';">Back</button>
             </div>
                </form>
         </div>
