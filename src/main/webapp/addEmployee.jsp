@@ -28,8 +28,9 @@
 	                        </div>
 	                        <div class="form-group">
 	                            <input type="number" class="form-control" autocomplete="off"  name="mobile" id="mobile"
-	                               pattern="[6-9]{1}[0-9]{9}" title="Enter 10 digits mobile number, Phone number with 7-9 and remaing 9 digit with 0-9" 
-	                               placeholder="Mobile Number" required="required" >
+	                               onkeyup="validateMobileno()" pattern="^[6-9]{1}[0-9]{9}*$" title="Enter 10 digits mobile number, Phone number with 7-9 and remaing 9 digit with 0-9" 
+	                               placeholder="Mobile Number" required="required" ><br>
+	                               <span id="mobileId" style="color: red"></span>
 	                        </div>
 	                        
 	                        <div class="form-group">
@@ -57,6 +58,17 @@
 <script>msg();</script>
 
 <script>
+function validateMobileno(){
+    var mobileno=document.getElementById("mobile").value;
+    var mobilenoRegex=/^([6-9]{1}[0-9]{9})*$/;
+    if(mobilenoRegex.test(mobileno)){
+        document.getElementById("mobileId").innerHTML="";
+        }
+    else
+    {
+        document.getElementById("mobileId").innerHTML="Mobile Number should contain valid 10 digit only "
+    }
+}
 function addEmployee() {
 	
 	event.preventDefault();
@@ -82,7 +94,7 @@ function addEmployee() {
 		console.log("error");	
 		console.log(response);
 		
-		var msg = response.errorMessage;
+		var msg = response.responseJSON.errorMessage;
 		console.log(msg);
 			document.querySelector("#messageBody").innerHTML = "<font color='red'>" + msg + "</font>";
 			$('#errorMsg').css({'display':'block'});

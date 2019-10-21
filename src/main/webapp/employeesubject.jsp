@@ -16,30 +16,32 @@
                 <h5>Fauclty subject allocation</h5>
         </div>
         <div class="w-100"></div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <form onsubmit="addEmployee()">
-            <label for="" class="text-center text-light bg-info form-control">Select Faculty</label>
-            <select name="" id="facultyData" class="form-control">
+            	<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<label for="" class="text-center text-light bg-info form-control">Select Faculty</label>
+						</div>
+						<select name="" id="facultyData" class="form-control">
               
-            </select></br>
-            <label for="" class="text-center text-light bg-info form-control">Choose Subject</label>
-            <select id="subject" class="form-control">
-            </select></br>
-            <!-- 
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Subject</th>
-                        <th>Select</th>
-                    </tr>
-                </thead>
-                <tbody id='subjectData'>
-                </tbody>
-                
-            </table>
-             -->
+            			</select><br>
+					</div>
+				</div>
+            
+            	<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-prepend">
+							<label for="" class="text-center text-light bg-info form-control">Choose Subject</label>
+						</div>
+						<select id="subject" class="form-control">
+            
+            			</select><br>
+					</div>
+				</div>
+            
             <div class="text-center">
-                <button type="submit" class="btn btn-outline-info" onclick="">Update</button>
+                <button type="submit" class="btn btn-outline-info" onclick="">Add</button>
                 <button class="btn btn-outline-secondary" onClick="window.location='?pageName=adminHome.jsp';">Back</button>
             </div>
                </form>

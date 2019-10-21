@@ -11,14 +11,21 @@
 		<div>
 			<h3>Subject wise RankHolder</h3><br>
 			<form onsubmit="rankHolder()">
-				<label for="" class="text-center text-light bg-info form-control">Select a subject</label> 
-				<select id="subCode" class="form-control">
-					<option value="ENG11">ENGLISH</option>
-					<option value="MAT12">MATHS</option>
-					<option value="PHY13">PHYSICS</option>
-					<option value="CHE14">CHEMISTRY</option>
-					<option value="COM15">COMPUTER</option>
-				</select><br><br> 
+							<div class="form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<label for="" class="text-center text-light bg-info form-control">Select a subject</label>
+									</div>
+									<select id="subCode" class="form-control">
+										<option value="ENG11">ENGLISH</option>
+										<option value="MAT12">MATHS</option>
+										<option value="PHY13">PHYSICS</option>
+										<option value="CHE14">CHEMISTRY</option>
+										<option value="COM15">COMPUTER</option>
+									</select><br><br> 
+								</div>
+							</div>
+				 
 				<div class="text-center">
 					<button class="btn btn-primary" >Enter </button>
 					<button class="btn btn-secondary" onClick="window.location='?pageName=userHome.jsp';">Back </button> <br><br>
